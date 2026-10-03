@@ -1,0 +1,5 @@
+div:hover{
+    background-color: blue;
+    cursor: pointer;
+    transform: scale(1.3);
+}
