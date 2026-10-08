@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team</title>
+<style>
+  body {
+    background: linear-gradient(to right, #00d4ff, #0099ff);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .team-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    background: #fdeee1;
+    width: 240px;
+    border-radius: 25px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 250px;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  }
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+  }
+  .card h3 { margin: 15px 0 5px 0; font-size: 16px; }
+  .card p { margin: 0; list-style: none; }
+
+  /* POPUP */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+  }
+  .modal-content {
+    background: white;
+    width: 350px;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+  }
+  .modal-content img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto 15px auto;
+  }
+  .close {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="team-container">
+  <div class="card" onclick="openInfo('Clemont','Finance Manager','Clemont manages all budgets, payroll and financial reports. 5 years with us.','https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400')">
+    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400">
+    <h3>Finance Manager</h3>
+    <p>• Clemont</p>
+  </div>
+
+  <div class="card" onclick="openInfo('Alex W','IT Manager','Alex handles website, network and all IT security.','https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400')">
+    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400">
+    <h3>IT Manager</h3>
+    <p>• Alex W</p>
+  </div>
+</div>
+
+<!-- Info Popup -->
+<div id="infoModal" class="modal" onclick="if(event.target==this)closeInfo()">
+  <div class="modal-content">
+    <span class="close" onclick="closeInfo()">&times;</span>
+    <img id="modalImg" src="">
+    <h2 id="modalName"></h2>
+    <h4 id="modalRole"></h4>
+    <p id="modalBio"></p>
+  </div>
+</div>
+
+<script>
+function openInfo(name, role, bio, img){
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalRole').innerText = role;
+  document.getElementById('modalBio').innerText = bio;
+  document.getElementById('modalImg').src = img;
+  document.getElementById('infoModal').style.display = 'flex';
+}
+function closeInfo(){
+  document.getElementById('infoModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

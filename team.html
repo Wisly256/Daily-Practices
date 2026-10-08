@@ -12,12 +12,12 @@
         padding: 5px;
         background: linear-gradient(180deg, #cb6211 0%, #f1ee04 100%);
         color: black;
-        width: 25%;
+        width: 30%;
         border: 2px solid black;
         border-radius: 30px;
         display: inline-block;
         margin: 5px;
-        text-align: center;
+
     }
 
     body{
@@ -50,6 +50,19 @@
         </ul>
 
     </div>
+
+    <script>
+function openInfo(name, role, bio, img) {
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalRole').innerText = role;
+  document.getElementById('modalBio').innerText = bio;
+  document.getElementById('modalImg').src = img;
+  document.getElementById('infoModal').style.display = 'flex';
+}
+function closeInfo() {
+  document.getElementById('infoModal').style.display = 'none';
+}
+</script>
 
 
 </body>
